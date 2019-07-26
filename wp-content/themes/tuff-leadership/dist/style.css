@@ -42,3 +42,8 @@
         flex: 0 0 100%;
     }
 }
+
+.slick-slide{
+    /* height: 50%; */
+    height: 240px;
+}

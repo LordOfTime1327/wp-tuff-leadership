@@ -1,58 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>Document</title>
-    <?php wp_head() ?>
-  </head>
-  <body>
+    <?php get_header()?>
 
-  <?php $path = get_template_directory_uri(); ?>
-
-  <!-- <?php get_header()?> -->
-
-    <section id="top" class="wrapper wrapper_double">
-      
-      <div class="container container_double">
-        <div class="registration">
-          <a href="#registration" class="registration__link">Registration</a>
-        </div>
-
-       
-        <div class="info">
-          <span class="info__place"><?php the_field("place") ?></span>
-          <span class="info__date"><?php the_field("date") ?></span>
-        </div>
-
-        <div class="caption">
-          <span class="caption__title">
-            tuff<span class="caption__dot"></span
-            ><span class="caption__secondTitle">leadership trainig</span>
-          </span>
-
-          <p class="caption__text">
-            <?php the_field("intro") ?>
-          </p>
-
-          <div class="caption__snake">
-              <embed src="<?php echo $path?>/i/snake.svg" type="">
-          </div>
-        </div>
-
-        <a href="#second" class="scroll">
-          <span class="scroll__arrow">
-            <embed src="<?php echo $path?>/i/arrow.svg" type="">
-          </span>
-          <span class="scroll__text">Scroll</span>
-        </a>
-
-        <div class="logo">
-            <embed src="<?php echo $path?>/i/logo.svg" type="">
-        </div>
-      </div>
-    </section>
+    <?php $path = get_template_directory_uri(); ?>
 
     <section class="wrapper" id='second'>
       <div class="container">
@@ -114,7 +62,7 @@
         <div class="paragraph">
        
           <?php
-            if( have_rows('approachfields') ):
+            if( have_rows('approach_fields') ):
             while ( have_rows('approach_fields') ) : the_row();
           ?>
             <div class="paragraph__item">
@@ -242,7 +190,7 @@
               <div class="content__text">
                 <p class="content__text_first"><?php the_field('content_wys') ?></p>
               </div>
-              <div class="content__caption"><?php the_field('contenttitle') ?></div>
+              <div class="content__caption"><?php the_field('content_title') ?></div>
             </div>
 
               <?php 
@@ -259,7 +207,7 @@
 
             <div class="discover">
               <p class="discover__caption">You will discover <span class="discover__dot"></span></p>
-                <?php the_field('discoverwys') ?>
+                <?php the_field('discover_wys') ?>
             </div>
           </div>
     </section>
@@ -318,71 +266,8 @@
                   endif;
                   ?>
 
-             <footer class="footer">
-                <div id="contact" class="footer__contact">
-                  <div class="contact">
-                    <span class="contact__caption">contact</span>
-                    <address class="contact__item"><?php the_field("place") ?></address>
-                    <time class="contact__item"><?php the_field("date") ?></time>
-                    
-                    <?php if( have_rows('contacts_repeater') ): ?>
-                      <?php while( have_rows('contacts_repeater') ): the_row(); ?>
-                          <?php if( have_rows('email_repeater') ): ?>
-                          <?php while( have_rows('email_repeater') ): the_row();
-                            $email = get_sub_field('email');
-                          ?>
-                            <a href="mailto: <?php echo $email ?>" class="contact__item contact__item_email"><?php echo $email ?></a>
-                          <?php endwhile; ?>
-                          <?php endif; ?>
+                  <?php get_footer() ?>
 
-                          <?php if( have_rows('phone_repeater') ): ?>
-                          <?php while( have_rows('phone_repeater') ): the_row();
-                            $phone = get_sub_field('phone'); 
-                          ?>
-                            <a href="mailto: <?php echo $phone ?>" class="contact__item contact__item_tel"><?php echo $phone ?></a>
-                          <?php endwhile; ?>
-                          <?php endif; ?>
-                      <?php endwhile; ?>
-                    <?php endif; ?>
-
-                   </div>
-         
-                  <div class="follow">
-                    <span class="follow__caption">follow</span>
-                    <div class="follow__box">
-                        <?php
-                          if( have_rows('icon_repeater') ):
-                              while ( have_rows('icon_repeater') ) : the_row();?>
-                                <a href="<?php the_sub_field('soc_link'); ?>" target="_blank" class="follow__item">
-                                  <img src="<?php the_sub_field('soc_img'); ?>" alt="" class="follow__img">  
-                                </a>
-                            <?php 
-                              endwhile;
-                          endif;
-                        ?>
-                    </div>
-                  </div>
-        
-                  <div class="logo logo_footer">
-                    <embed src="<?php echo $path?>/i/logo.svg" type="">
-                  </div>
-                </div>
-        
-                <div class="footer__formBox">
-
-                  <a name="registration"></a>
-
-                  <p class="footer__formCaption">Get in touch</p>
-
-                  <form class="footerForm" action="sendEmail.php"  method="post">
-                    <!-- <input name="name" type="text" id="formName" class="footerForm__item footerForm__item_name" placeholder="Your Name" required autocomplete="off">
-                    <input name="email" type="email" id="formEmail" class="footerForm__item footerForm__item_email" placeholder="Your e-mail" required autocomplete="nope">
-                    <input name="message" type="text" class="footerForm__item footerForm__item_msg" placeholder="Your message" autocomplete="off">
-                    <button type="submit" class="footerForm__submit">Send</button> -->
-                    <?php echo do_shortcode('[contact-form-7 id="94" title="Contact form 1"]');?>
-                  </form>
-                </div>
-               </footer>
            </div>
       </div>
     </section>
