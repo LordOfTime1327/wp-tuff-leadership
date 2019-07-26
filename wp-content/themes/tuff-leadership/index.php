@@ -11,6 +11,8 @@
 
   <?php $path = get_template_directory_uri(); ?>
 
+  <!-- <?php get_header()?> -->
+
     <section id="top" class="wrapper wrapper_double">
       
       <div class="container container_double">
@@ -398,13 +400,23 @@
           <div class="menuBlock__item">
           
             <div class="menuBlock__caption">menu</div>
-              <menu class="menuBox">
+              <!-- <menu class="menuBox">
                 <menuitem><a href="#top" class="menuBox__link">Home</a></menuitem>
                 <menuitem><a href="#approach" class="menuBox__link">Approach</a></menuitem>
                 <menuitem><a href="#coach" class="menuBox__link">The coaches</a></menuitem>
                 <menuitem><a href="#testimonials" class="menuBox__link">Testimonials</a></menuitem>
-                <menuitem><a href="#contact" class="menuBox__link menuBox__link_last">Contact</a></menuitem>
-              </menu>
+                <menuitem><a href="#contact" class="menuBox__link menuBox__link_last">Contact</a></menuitem> -->
+                <?php wp_nav_menu( [
+                  'theme_location' => '',
+                  'menu' => 'main menu', 
+                  'container' => 'nav', 
+                  'container_class' => 'menuBox', 
+                  'container_id' => '',
+                  'menu_class' => 'has-submenu', 
+                  'menu_id' => '',
+
+                ] ); ?>
+              <!-- </menu> -->
             </div>
 
           <div class="details">

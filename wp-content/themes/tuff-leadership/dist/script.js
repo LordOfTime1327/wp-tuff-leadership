@@ -1,7 +1,8 @@
 const menuBtn = document.getElementById("menuBtn");
 const menu = document.getElementById("menu");
 const close = document.getElementById("close");
-const menuLink = document.getElementsByClassName("menuBox__link");
+// const menuLink = document.getElementsByClassName("menuBox__link");
+const menuLink = document.getElementsByTagName("li");
 // const menuBox = document.getElementsByClassName("menuBox")[0];
 
 for (let i = 0; menuLink.length > i; i++) {
@@ -19,10 +20,6 @@ function menuClose() {
 menuBtn.addEventListener("click", menuOpen, false);
 close.addEventListener("click", menuClose, false);
 
-// jQuery(document).ready(function($) {
-//   // Внутри этой функции $() будет работать как синоним jQuery()
-
-// });
 jQuery(document).ready(function($) {
   $(".slider").slick({
     autoplay: true,
