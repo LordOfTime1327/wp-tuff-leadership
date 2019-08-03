@@ -5,7 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Document</title>
+    
     <?php wp_head() ?>
+
   </head>
   <body>
 
@@ -17,7 +19,6 @@
         <div class="registration">
           <a href="#registration" class="registration__link">Registration</a>
         </div>
-
        
         <div class="info">
           <span class="info__place"><?php the_field("place") ?></span>

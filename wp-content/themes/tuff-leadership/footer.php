@@ -61,7 +61,7 @@
                     <input name="email" type="email" id="formEmail" class="footerForm__item footerForm__item_email" placeholder="Your e-mail" required autocomplete="nope">
                     <input name="message" type="text" class="footerForm__item footerForm__item_msg" placeholder="Your message" autocomplete="off">
                     <button type="submit" class="footerForm__submit">Send</button> -->
-                    <?php echo do_shortcode('[contact-form-7 id="94" title="Contact form 1"]');?>
+                    <?php echo do_shortcode('[contact-form-7 id="247" title="footer form"]');?>
                   </form>
                 </div>
                </footer>
